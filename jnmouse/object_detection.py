@@ -1,5 +1,5 @@
 import tensorrt as trt
-from jetbot.ssd_tensorrt import load_plugins, parse_boxes, TRT_INPUT_NAME, TRT_OUTPUT_NAME
+from jnmouse.ssd_tensorrt import load_plugins, parse_boxes, TRT_INPUT_NAME, TRT_OUTPUT_NAME
 from .tensorrt_model import TRTModel
 import numpy as np
 import cv2

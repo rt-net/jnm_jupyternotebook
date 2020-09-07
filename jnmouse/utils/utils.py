@@ -5,7 +5,7 @@ import os
 
 
 def notebooks_dir():
-    return pkg_resources.resource_filename('jetbot', 'notebooks')
+    return pkg_resources.resource_filename('jnmouse', 'notebooks')
 
 
 def platform_notebooks_dir():

@@ -12,13 +12,9 @@ build_libs()
 
 
 setup(
-    name='jetbot',
-    version='0.4.0',
+    name='jnmouse',
+    version='0.1.0',
     description='An open-source robot based on NVIDIA Jetson Nano',
     packages=find_packages(),
-    install_requires=[
-        'Adafruit_MotorHat',
-        'Adafruit-SSD1306',
-    ],
-    package_data={'jetbot': ['ssd_tensorrt/*.so']},
+    package_data={'jnmouse': ['ssd_tensorrt/*.so']},
 )

@@ -21,7 +21,7 @@ class Camera(traitlets.HasTraits):
         if hasattr(self, '_widget'):
             return self._widget   # cache widget, so we don't duplicate links
         from ipywidgets import Image
-        from jetbot.image import bgr8_to_jpeg
+        from jnmouse.image import bgr8_to_jpeg
         image = Image()
         traitlets.dlink((self, 'value'), (image, 'value'), transform=bgr8_to_jpeg)
         self._widget = image

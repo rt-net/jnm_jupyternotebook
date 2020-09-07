@@ -1,7 +1,7 @@
 import argparse
 import traitlets
-from jetbot import Robot
-from jetbot import Camera
+from jnmouse import Robot
+from jnmouse import Camera
 import torch
 import torchvision
 import torch.nn.functional as F

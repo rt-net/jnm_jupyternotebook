@@ -106,16 +106,12 @@ sudo jupyter labextension install @bokeh/jupyter_bokeh
 # install jetbot python module
 cd
 sudo apt install -y python3-smbus
-cd ~/jetbot
+cd ~/jnm_jupyternotebook
 sudo apt-get install -y cmake
 sudo python3 setup.py install 
 
 # Install jetbot services
-cd jetbot/utils
-python3 create_stats_service.py
-sudo mv jetbot_stats.service /etc/systemd/system/jetbot_stats.service
-sudo systemctl enable jetbot_stats
-sudo systemctl start jetbot_stats
+cd jnmouse/utils
 python3 create_jupyter_service.py
 sudo mv jetbot_jupyter.service /etc/systemd/system/jetbot_jupyter.service
 sudo systemctl enable jetbot_jupyter
