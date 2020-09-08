@@ -2,25 +2,25 @@
 
 # jnm_jupyternotebook
 
-[Jetson Nano Mouse](https://rt-net.jp/products/jetson-nano-mouse)用のJupyter Notebookです。
+Jupyter Notebooks for [Jetson Nano Mouse](https://rt-net.jp/products/jetson-nano-mouse)
 
-[jetbot](https://github.com/NVIDIA-AI-IOT/jetbot)プロジェクトをベースに開発されています。
+This repository is based on the [jetbot](https://github.com/NVIDIA-AI-IOT/jetbot) project.
 
 ![](https://rt-net.github.io/images/jetson-nano-mouse/jnm_jupyternotebook_sample.png)
 
-## 動作環境
+## Requirements
 
-### ハードウェア
+### Hardware
 
 * Jetson Nano Mouse
     * with [Jetson Nano Dev. Kit B01](https://ryoyo-gpu.jp/products/jetson/nano2/)
 
-### ソフトウェア
+### Software
 
 * jetbot_image_v0p4p0.zip (L4T R32.3.1)
-    * セットアップ資料: https://github.com/NVIDIA-AI-IOT/jetbot/wiki/software-setup
+    * setup document: https://github.com/NVIDIA-AI-IOT/jetbot/wiki/software-setup
 
-## インストール方法
+## Installation
 
 ```
 $ git clone https://github.com/rt-net/jnm_jupyternotebook.git
@@ -28,19 +28,16 @@ $ cd jnm_jupyternotebook
 $ sudo python3 setup.py install
 ```
 
-## ライセンス
+## LICENSE
 
 (C) 2020 RT Corporation \<support@rt-net.jp\>
 
-各ファイルはライセンスがファイル中に明記されている場合、そのライセンスに従います。特に明記されていない場合は、Apache License, Version 2.0に基づき公開されています。  
-ライセンスの全文は[LICENSE](./LICENSE)または[https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0)から確認できます。
+This repository is licensed under the Apache License, Version 2.0, see [LICENSE](./LICENSE).  
+Unless attributed otherwise, everything in this repository is under the Apache License, Version 2.0.
 
-※このソフトウェアは基本的にオープンソースソフトウェアとして「AS IS」（現状有姿のまま）で提供しています。本ソフトウェアに関する無償サポートはありません。  
-バグの修正や誤字脱字の修正に関するリクエストは常に受け付けていますが、それ以外の機能追加等のリクエストについては社内のガイドラインを優先します。
+### Acknowledgements
 
-### 謝辞
-
-このソフトウェアは[NVIDIA-AI-IOT/jetbot](https://github.com/NVIDIA-AI-IOT/jetbot)をベースに開発されています。
+This project is based on [NVIDIA-AI-IOT/jetbot](https://github.com/NVIDIA-AI-IOT/jetbot).
 ```txt
 Copyright (c) 2019, NVIDIA CORPORATION. All rights reserved.
 
