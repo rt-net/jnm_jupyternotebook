@@ -3,23 +3,23 @@ import atexit
 import cv2
 import threading
 import numpy as np
-from .camera import Camera
+from .camera_base import CameraBase
 
 
-class OpenCvGstCamera(Camera):
+class OpenCvGstCamera(CameraBase):
     
     value = traitlets.Any()
     
     # config
     width = traitlets.Integer(default_value=224).tag(config=True)
     height = traitlets.Integer(default_value=224).tag(config=True)
-    fps = traitlets.Integer(default_value=21).tag(config=True)
+    fps = traitlets.Integer(default_value=30).tag(config=True)
     capture_width = traitlets.Integer(default_value=816).tag(config=True)
     capture_height = traitlets.Integer(default_value=616).tag(config=True)
 
     def __init__(self, *args, **kwargs):
         self.value = np.empty((self.height, self.width, 3), dtype=np.uint8)
-        super(Camera, self).__init__(*args, **kwargs)
+        super().__init__(self, *args, **kwargs)
 
         try:
             self.cap = cv2.VideoCapture(self._gst_str(), cv2.CAP_GSTREAMER)
@@ -47,7 +47,7 @@ class OpenCvGstCamera(Camera):
                 break
                 
     def _gst_str(self):
-        return 'nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (
+        return 'nvarguscamerasrc sensor-mode=3 ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (
                 self.capture_width, self.capture_height, self.fps, self.width, self.height)
     
     def start(self):
@@ -66,3 +66,7 @@ class OpenCvGstCamera(Camera):
     def restart(self):
         self.stop()
         self.start()
+        
+    @staticmethod
+    def instance(*args, **kwargs):
+        return OpenCvGstCamera(*args, **kwargs)
