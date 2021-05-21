@@ -16,6 +16,7 @@ class OpenCvGstCamera(CameraBase):
     fps = traitlets.Integer(default_value=30).tag(config=True)
     capture_width = traitlets.Integer(default_value=816).tag(config=True)
     capture_height = traitlets.Integer(default_value=616).tag(config=True)
+    sensor_id = traitlets.Integer(default_value=0).tag(config=True)
 
     def __init__(self, *args, **kwargs):
         self.value = np.empty((self.height, self.width, 3), dtype=np.uint8)
@@ -47,8 +48,8 @@ class OpenCvGstCamera(CameraBase):
                 break
                 
     def _gst_str(self):
-        return 'nvarguscamerasrc sensor-mode=3 ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (
-                self.capture_width, self.capture_height, self.fps, self.width, self.height)
+        return 'nvarguscamerasrc sensor-id=%d sensor-mode=3 ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (
+                self.sensor_id, self.capture_width, self.capture_height, self.fps, self.width, self.height)
     
     def start(self):
         if not self.cap.isOpened():
