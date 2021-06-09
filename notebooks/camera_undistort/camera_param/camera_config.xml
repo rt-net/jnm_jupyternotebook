@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+  <!-- カメラ設定 -->
+  <camera_param>
+    <!-- 撮影範囲(0~1.0: 推奨: 0.7) -->
+    <roi>1.0</roi>
+    <!-- 横方向の解像度 -->
+    <width>640</width>
+    <!-- 縦方向の解像度 -->
+    <height>480</height>
+  </camera_param>
+
+  <board_param>
+    <!-- 縦方向の格子点数 -->
+    <v_num>6</v_num>
+    <!-- 横方向の格子点数 -->
+    <h_num>9</h_num>
+    <!-- 格子点間の距離[mm] -->
+    <chess_size>20.5</chess_size>
+  </board_param>
+
+</config>
