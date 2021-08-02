@@ -4,8 +4,8 @@ import os
 import subprocess
 import tensorrt as trt
 
-TRT_INPUT_NAME = 'input'
-TRT_OUTPUT_NAME = 'nms'
+TRT_INPUT_NAME = 'Input'
+TRT_OUTPUT_NAME = 'NMS'
 FROZEN_GRAPH_NAME = 'frozen_inference_graph.pb'
 LABEL_IDX = 1
 CONFIDENCE_IDX = 2
