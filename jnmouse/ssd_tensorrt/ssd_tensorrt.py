@@ -49,6 +49,11 @@ def parse_boxes(outputs):
     return all_detections
 
 
+def load_flattenconcat_plugin():
+    library_path = os.path.join(
+        os.path.dirname(__file__), 'libflattenconcat.so')
+    ctypes.CDLL(library_path)
+
 def load_plugins():
     library_path = os.path.join(
         os.path.dirname(__file__), 'libssd_tensorrt.so')

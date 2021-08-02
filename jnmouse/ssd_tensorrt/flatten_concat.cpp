@@ -1,3 +1,28 @@
+// SPDX-License-Identifier: Apache-2.0
+/*
+ * Copyright 2021 RT Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * This program is based on
+ * https://github.com/NVIDIA-AI-IOT/jetbot/blob/e35f63deefeda6e2d5e02d14be93fbcca28c8957/jetbot/ssd_tensorrt/FlattenConcat.cpp
+ * which is released under the MIT License.
+ *
+ * Copyright (c) 2019, NVIDIA CORPORATION. All rights reserved.
+ *
+ * https://github.com/NVIDIA-AI-IOT/jetbot/blob/e35f63deefeda6e2d5e02d14be93fbcca28c8957/LICENSE.md
+ */
+
 #include <algorithm>
 #include <cassert>
 #include <iostream>
@@ -25,7 +50,7 @@ using namespace nvinfer1;
 namespace
 {
 const char* FLATTENCONCAT_PLUGIN_VERSION{"1"};
-const char* FLATTENCONCAT_PLUGIN_NAME{"FlattenConcat_TRT_jetbot"};
+const char* FLATTENCONCAT_PLUGIN_NAME{"FlattenConcat_TRT"};
 }
 
 // Flattens all input tensors and concats their flattened version together
@@ -116,6 +141,7 @@ public:
         // copying all inputs bytes to output byte array
         size_t inputOffset = 0;
         float* output = reinterpret_cast<float*>(outputs[0]);
+        CHECK(cublasSetStream(mCublas, stream));
 
         for (size_t i = 0; i < mFlattenedInputSize.size(); ++i)
         {
