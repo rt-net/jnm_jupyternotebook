@@ -1,0 +1,50 @@
+<a name="unreleased"></a>
+## [Unreleased]
+
+
+<a name="0.4.0"></a>
+## [0.4.0] - 2021-08-31
+### Feature
+- Support TensorRT 7 (newer than JetPack 4.3) ([#8](https://github.com/rt-net/jnm_jupyternotebook/pull/8))
+
+### Chore
+- Update default Jupyter service name ([#10](https://github.com/rt-net/jnm_jupyternotebook/pull/10))
+
+<a name="0.3.1"></a>
+## [0.3.1] - 2021-07-28
+### Fix
+- Fix AttributeError on exit ([#6](https://github.com/rt-net/jnm_jupyternotebook/issues/6))
+
+<a name="0.3.0"></a>
+## [0.3.0] - 2021-07-28
+### Feature
+- Add multi-camera support ([#4](https://github.com/rt-net/jnm_jupyternotebook/issues/4))
+
+### Chore
+- Add camera undistortion notebooks ([#5](https://github.com/rt-net/jnm_jupyternotebook/issues/5))
+
+<a name="0.2.0"></a>
+## [0.2.0] - 2021-04-21
+### Feature
+- Update Camera class to be consistent with jetbot ([#2](https://github.com/rt-net/jnm_jupyternotebook/issues/2))
+
+### Chore
+- Add Japanese README
+- Add utils
+- Remove un-used hardware data ([#3](https://github.com/rt-net/jnm_jupyternotebook/issues/3))
+
+<a name="0.1.0"></a>
+## 0.1.0 - 2020-09-07
+### Feature
+- Import from [NVIDIA-AI-IOT/jetbot](https://github.com/NVIDIA-AI-IOT/jetbot)
+- Add Jetson Nano Mouse support
+
+### Chore
+- Add .gitignore to CMake project output files
+- Update README for jnm_jupyternotebook
+
+[Unreleased]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.4.0...HEAD
+[0.4.0]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.3.1...0.4.0
+[0.3.1]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.3.0...0.3.1
+[0.3.0]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.2.0...0.3.0
+[0.2.0]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.1.0...0.2.0

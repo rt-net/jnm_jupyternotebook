@@ -4,8 +4,8 @@ import os
 import subprocess
 import tensorrt as trt
 
-TRT_INPUT_NAME = 'input'
-TRT_OUTPUT_NAME = 'nms'
+TRT_INPUT_NAME = 'Input'
+TRT_OUTPUT_NAME = 'NMS'
 FROZEN_GRAPH_NAME = 'frozen_inference_graph.pb'
 LABEL_IDX = 1
 CONFIDENCE_IDX = 2
@@ -49,10 +49,16 @@ def parse_boxes(outputs):
     return all_detections
 
 
-def load_plugins():
+def load_flattenconcat_plugin():
     library_path = os.path.join(
-        os.path.dirname(__file__), 'libssd_tensorrt.so')
+        os.path.dirname(__file__), 'libflattenconcat.so')
     ctypes.CDLL(library_path)
+
+def load_plugins():
+    if trt.__version__[0] < '7':
+        library_path = os.path.join(
+            os.path.dirname(__file__), 'libssd_tensorrt.so')
+        ctypes.CDLL(library_path)
 
 
 def _get_feature_map_shape(config):

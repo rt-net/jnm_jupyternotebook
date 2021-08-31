@@ -13,7 +13,7 @@ build_libs()
 
 setup(
     name='jnmouse',
-    version='0.1.0',
+    version='0.4.0',
     description='An open-source robot based on NVIDIA Jetson Nano',
     packages=find_packages(),
     package_data={'jnmouse': ['ssd_tensorrt/*.so']},
