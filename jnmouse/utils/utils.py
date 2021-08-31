@@ -46,3 +46,32 @@ def get_network_interface_state(interface):
     else:
         return status
 
+
+def get_software_versions():
+    stats = {}
+    try:
+        import tensorrt as trt
+        stats.update({"TensorRT": trt.__version__})
+    except:
+        pass
+    try:
+        import cv2
+        stats.update({"OpenCV": cv2.__version__})
+    except:
+        pass
+    try:
+        import torch
+        stats.update({"PyTorch": torch.__version__})
+    except:
+        pass
+    try:
+        import torchvision
+        stats.update({"TorchVision": torchvision.__version__})
+    except:
+        pass
+    try:
+        import pycuda
+        stats.update({"PyCUDA": pycuda.VERSION})
+    except:
+        pass
+    return stats

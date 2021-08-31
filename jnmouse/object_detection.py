@@ -24,8 +24,10 @@ class ObjectDetector(object):
         logger = trt.Logger()
         trt.init_libnvinfer_plugins(logger, '')
         load_plugins()
-        self.trt_model = TRTModel(engine_path, input_names=[TRT_INPUT_NAME],
-                                  output_names=[TRT_OUTPUT_NAME, TRT_OUTPUT_NAME + '_1'])
+        self.trt_model = TRTModel(engine_path)
+        ## If you want to specify input and output, use the following instead of the above.
+        # self.trt_model = TRTModel(engine_path, input_names=[TRT_INPUT_NAME],
+        #                           output_names=[TRT_OUTPUT_NAME, TRT_OUTPUT_NAME + '_1']) 
         self.preprocess_fn = preprocess_fn
         
     def execute(self, *inputs):

@@ -2,6 +2,14 @@
 ## [Unreleased]
 
 
+<a name="0.4.0"></a>
+## [0.4.0] - 2021-08-31
+### Feature
+- Support TensorRT 7 (newer than JetPack 4.3) ([#8](https://github.com/rt-net/jnm_jupyternotebook/pull/8))
+
+### Chore
+- Update default Jupyter service name ([#10](https://github.com/rt-net/jnm_jupyternotebook/pull/10))
+
 <a name="0.3.1"></a>
 ## [0.3.1] - 2021-07-28
 ### Fix
@@ -35,7 +43,8 @@
 - Add .gitignore to CMake project output files
 - Update README for jnm_jupyternotebook
 
-[Unreleased]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.3.1...HEAD
+[Unreleased]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.4.0...HEAD
+[0.4.0]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.3.1...0.4.0
 [0.3.1]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.3.0...0.3.1
 [0.3.0]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.2.0...0.3.0
 [0.2.0]: https://github.com/rt-net/jnm_jupyternotebook/compare/0.1.0...0.2.0
