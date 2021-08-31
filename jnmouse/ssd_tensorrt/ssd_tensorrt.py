@@ -55,9 +55,10 @@ def load_flattenconcat_plugin():
     ctypes.CDLL(library_path)
 
 def load_plugins():
-    library_path = os.path.join(
-        os.path.dirname(__file__), 'libssd_tensorrt.so')
-    ctypes.CDLL(library_path)
+    if trt.__version__[0] < '7':
+        library_path = os.path.join(
+            os.path.dirname(__file__), 'libssd_tensorrt.so')
+        ctypes.CDLL(library_path)
 
 
 def _get_feature_map_shape(config):
