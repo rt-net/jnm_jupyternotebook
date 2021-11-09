@@ -1,20 +1,13 @@
+import os
 import glob
 import subprocess
 from setuptools import setup, find_packages, Extension
 
 
-def build_libs():
-    subprocess.call(['cmake', '.'])
-    subprocess.call(['make'])
-    
+def prebuild_libs():
+    os.makedirs('build', exist_ok=True)
+    subprocess.check_call(['cmake', '..'], cwd='build')
+    subprocess.check_call(['make'], cwd='build')
 
-build_libs()
-
-
-setup(
-    name='jnmouse',
-    version='0.4.0',
-    description='An open-source robot based on NVIDIA Jetson Nano',
-    packages=find_packages(),
-    package_data={'jnmouse': ['ssd_tensorrt/*.so']},
-)
+prebuild_libs()
+setup()
