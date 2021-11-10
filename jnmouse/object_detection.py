@@ -1,8 +1,8 @@
 import tensorrt as trt
-from jnmouse.ssd_tensorrt import load_plugins, parse_boxes, TRT_INPUT_NAME, TRT_OUTPUT_NAME
-from .tensorrt_model import TRTModel
+import atexit
 import numpy as np
 import cv2
+from jnmouse.ssd_tensorrt import load_plugins
 
 
 mean = 255.0 * np.array([0.5, 0.5, 0.5])
@@ -19,8 +19,10 @@ def bgr8_to_ssd_input(camera_value):
 
 
 class ObjectDetector(object):
-    
     def __init__(self, engine_path, preprocess_fn=bgr8_to_ssd_input):
+        from .tensorrt_model import TRTModel
+        from jnmouse.ssd_tensorrt import parse_boxes, TRT_INPUT_NAME, TRT_OUTPUT_NAME
+
         logger = trt.Logger()
         trt.init_libnvinfer_plugins(logger, '')
         load_plugins()
@@ -29,10 +31,68 @@ class ObjectDetector(object):
         # self.trt_model = TRTModel(engine_path, input_names=[TRT_INPUT_NAME],
         #                           output_names=[TRT_OUTPUT_NAME, TRT_OUTPUT_NAME + '_1']) 
         self.preprocess_fn = preprocess_fn
+        self.postprocess_fn = parse_boxes
         
     def execute(self, *inputs):
         trt_outputs = self.trt_model(self.preprocess_fn(*inputs))
-        return parse_boxes(trt_outputs)
+        return self.postprocess_fn(trt_outputs)
     
+    def __call__(self, *inputs):
+        return self.execute(*inputs)
+
+class PycudaObjectDetector(object):
+    def __init__(self, engine_path, preprocess_fn=bgr8_to_ssd_input):
+        import pycuda.driver as cuda
+        from .tensorrt_ssd import TrtSsd
+        self.engine_path = engine_path
+        logger = trt.Logger()
+        trt.init_libnvinfer_plugins(logger, '')
+        load_plugins()
+        self.preprocess_fn = preprocess_fn
+
+        cuda.init()  # init pycuda driver
+        self.cuda_ctx = cuda.Device(0).make_context()  # GPU 0
+
+        self.trt_ssd = TrtSsd(self.engine_path, cuda_ctx=self.cuda_ctx)
+        
+        atexit.register(self.destroy)
+        
+    def parse_output(self, output, layout):
+        all_detections = []
+        for i in range(int(len(output)/layout)):
+            detections = []
+            prefix = i*layout
+            index = output[prefix+0]
+            label = output[prefix+1]
+            conf  = output[prefix+2]
+            xmin  = output[prefix+3]
+            ymin  = output[prefix+4]
+            xmax  = output[prefix+5]
+            ymax  = output[prefix+6]
+            detections.append(dict(
+                label=int(label),
+                confidence=float(conf),
+                bbox=[
+                    float(xmin),
+                    float(ymin),
+                    float(xmax),
+                    float(ymax)
+                ]
+            ))
+            all_detections.append(detections)
+        return all_detections
+
+    def execute(self, *inputs):
+        self.cuda_ctx.push()
+        trt_outputs = self.trt_ssd(self.preprocess_fn(*inputs))
+        self.cuda_ctx.pop()
+        return self.parse_output(output=trt_outputs, layout=7)
+
+    def destroy(self):
+        self.cuda_ctx.push()
+        del self.trt_ssd
+        self.cuda_ctx.pop()
+        del self.cuda_ctx
+        
     def __call__(self, *inputs):
         return self.execute(*inputs)
