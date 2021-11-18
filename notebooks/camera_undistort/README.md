@@ -1,7 +1,9 @@
 # camera_undistort
 ![](https://rt-net.github.io/images/jetson-nano-mouse/jnmouse_undistort.png)
 
-Jetson Nano Mouseに搭載されたステレオカメラの歪み補正、視差推定、三次元復元を行うNotebookです。詳細な使い方はそれぞれのNotebookに書かれています。アルゴリズムやコードの実装について順に解説されているので下記の順に閲覧、実行することをおすすめします。※matplotlibおよびnumpyのインストールが必要です（apt installコマンドでのインストール推奨）
+Jetson Nano Mouseに搭載されたステレオカメラの歪み補正、視差推定、三次元復元を行うNotebookです。詳細な使い方はそれぞれのNotebookに書かれています。アルゴリズムやコードの実装について順に解説されているので下記の順に閲覧、実行することをおすすめします。  
+※matplotlibおよびnumpyのインストールが必要です（apt installコマンドでのインストール推奨）  
+※v5.1以上のPyYAMLが必要です
 
 [jnmouse_ros_examples](https://github.com/rt-net/jnmouse_ros_examples)では歪み補正した画像をROSのtopicとしてpublishするサンプルやOpenVSLAMを用いてVisual SLAMを行うサンプルがあります。使用する際はundistort_data_collection.ipynb、undistort_fisheye_stereo.ipynbを実行し、出力されたカメラパラメータファイル（`camera_param_fisheye.npz`, `jnmouse_stereo.yaml`）が必要です。
 
