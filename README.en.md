@@ -19,14 +19,14 @@ This repository is based on the [JetBot (NVIDIA-AI-IOT/jetbot)](https://github.c
 
 Either of the following is required.
 
-* jetbot_image_v0p4p0.zip ([L4T R32.3.1](https://developer.nvidia.com/l4t-3231-archive)/[JetPack 4.3](https://developer.nvidia.com/jetpack-33-archive))
+* `jetbot_image_v0p4p0.zip` ([L4T R32.3.1](https://developer.nvidia.com/l4t-3231-archive)/[JetPack 4.3](https://developer.nvidia.com/jetpack-33-archive))
     * setup document: https://jetbot.org/master/software_setup/sd_card.html
-* jnmouse_jp451_v*.zip ([L4T 32.5.1](https://developer.nvidia.com/embedded/linux-tegra-r3251)/[JetPack 4.5.1](https://developer.nvidia.com/jetpack-sdk-451-archive))
+* `jnmouse_jp451_v*.zip` ([L4T 32.5.1](https://developer.nvidia.com/embedded/linux-tegra-r3251)/[JetPack 4.5.1](https://developer.nvidia.com/jetpack-sdk-451-archive))
     * setup document: https://github.com/rt-net/jnmouse_utils/blob/release/jetpack-4.5.1/setup-scripts/README.md
 
 ## Installation
 
-NOTE: This step is only required when setting up using jetbot_image_v0p4p0.zip. jnmouse_jp451_v*.zip has already been installed jnm_jupyternotebook, so this step is not necessary.
+NOTE: This step is only required when setting up using `jetbot_image_v0p4p0.zip`. `jnmouse_jp451_v*.zip` has already been installed jnm_jupyternotebook, so this step is not necessary.
 
 ```
 $ git clone https://github.com/rt-net/jnm_jupyternotebook.git
