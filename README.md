@@ -26,7 +26,7 @@
 
 ## インストール方法
 
-※この手順は`jetbot_image_v0p4p0.zip`を使ってセットアップする際にのみ必要です。`jnmouse_jp451_v*.zip`では実施済みのためこの手順は不要です。
+※この手順は`jetbot_image_v0p4p0.zip`を使ってセットアップする際にのみ必要です。`jnmouse_jp451_v*.zip`では本ソフトウェアインストール済みのためこの手順は不要です。
 
 ```
 $ git clone https://github.com/rt-net/jnm_jupyternotebook.git
