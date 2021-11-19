@@ -4,7 +4,7 @@
 
 [Jetson Nano Mouse](https://rt-net.jp/products/jetson-nano-mouse)用のJupyter Notebookです。
 
-[jetbot](https://github.com/NVIDIA-AI-IOT/jetbot)プロジェクトをベースに開発されています。
+[JetBot（NVIDIA-AI-IOT/jetbot）](https://github.com/NVIDIA-AI-IOT/jetbot)プロジェクトをベースに開発されています。
 
 ![](https://rt-net.github.io/images/jetson-nano-mouse/jnm_jupyternotebook_sample.png)
 
@@ -17,10 +17,16 @@
 
 ### ソフトウェア
 
-* jetbot_image_v0p4p0.zip (L4T R32.3.1)
-    * セットアップ資料: https://github.com/NVIDIA-AI-IOT/jetbot/wiki/software-setup
+以下のどちらかが必要です。
+
+* `jetbot_image_v0p4p0.zip` ([L4T R32.3.1](https://developer.nvidia.com/l4t-3231-archive)/[JetPack 4.3](https://developer.nvidia.com/jetpack-33-archive))
+    * セットアップ資料: https://jetbot.org/master/software_setup/sd_card.html
+* `jnmouse_jp451_v*.zip` ([L4T 32.5.1](https://developer.nvidia.com/embedded/linux-tegra-r3251)/[JetPack 4.5.1](https://developer.nvidia.com/jetpack-sdk-451-archive))
+    * セットアップ資料: https://github.com/rt-net/jnmouse_utils/blob/release/jetpack-4.5.1/setup-scripts/README.ja.md
 
 ## インストール方法
+
+※この手順は`jetbot_image_v0p4p0.zip`を使ってセットアップする際にのみ必要です。`jnmouse_jp451_v*.zip`では本ソフトウェアインストール済みのためこの手順は不要です。
 
 ```
 $ git clone https://github.com/rt-net/jnm_jupyternotebook.git
