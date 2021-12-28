@@ -6,7 +6,10 @@ Jupyter Notebooks for [Jetson Nano Mouse](https://rt-net.jp/products/jetson-nano
 
 This repository is based on the [JetBot (NVIDIA-AI-IOT/jetbot)](https://github.com/NVIDIA-AI-IOT/jetbot) project.
 
-![](https://rt-net.github.io/images/jetson-nano-mouse/jnm_jupyternotebook_sample.png)
+| Jetson Nano Mouse | Demonstration Video |
+| --- | --- |
+| <a href="https://rt-net.jp/products/jetson-nano-mouse" target="_blank" rel="noopener noreferrer"><img src="https://rt-net.github.io/images/jetson-nano-mouse/Jetson-Nano-Mouse-500x500.png" width="500px"></a> | <a href="https://www.youtube.com/watch?v=7h1j4Cx99is" target="_blank" rel="noopener noreferrer"><img src="https://rt-net.github.io/images/jetson-nano-mouse/jnm_jupyternotebook_youtube.png" width="500px"></a> |
+
 
 ## Requirements
 
@@ -33,6 +36,12 @@ $ git clone https://github.com/rt-net/jnm_jupyternotebook.git
 $ cd jnm_jupyternotebook
 $ sudo python3 setup.py install
 ```
+
+## Usage
+
+Please refer to the RT Software Tutorials (written in Japanese).
+
+https://rt-net.github.io/tutorials/jnmouse/jupyter-notebook/install.html
 
 ## LICENSE
 
