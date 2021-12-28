@@ -6,7 +6,9 @@
 
 [JetBot（NVIDIA-AI-IOT/jetbot）](https://github.com/NVIDIA-AI-IOT/jetbot)プロジェクトをベースに開発されています。
 
-![](https://rt-net.github.io/images/jetson-nano-mouse/jnm_jupyternotebook_sample.png)
+| Jetson Nano Mouse | Demonstration Video |
+| --- | --- |
+| <a href="https://rt-net.jp/products/jetson-nano-mouse" target="_blank" rel="noopener noreferrer"><img src="https://rt-net.github.io/images/jetson-nano-mouse/Jetson-Nano-Mouse-500x500.png" width="500px"></a> | <a href="https://www.youtube.com/watch?v=7h1j4Cx99is" target="_blank" rel="noopener noreferrer"><img src="https://rt-net.github.io/images/jetson-nano-mouse/jnm_jupyternotebook_youtube.png" width="500px"></a> |
 
 ## 動作環境
 
@@ -23,6 +25,12 @@
     * セットアップ資料: https://jetbot.org/master/software_setup/sd_card.html
 * `jnmouse_jp451_v*.zip` ([L4T 32.5.1](https://developer.nvidia.com/embedded/linux-tegra-r3251)/[JetPack 4.5.1](https://developer.nvidia.com/jetpack-sdk-451-archive))
     * セットアップ資料: https://github.com/rt-net/jnmouse_utils/blob/release/jetpack-4.5.1/setup-scripts/README.ja.md
+
+## 使い方
+
+RT Software Tutorialsを参照してください。
+
+https://rt-net.github.io/tutorials/jnmouse/jupyter-notebook/install.html
 
 ## インストール方法
 
