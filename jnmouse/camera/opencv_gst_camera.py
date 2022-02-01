@@ -1,3 +1,9 @@
+# This script is adapted from
+# https://github.com/NVIDIA-AI-IOT/jetbot/blob/b8039f39932092f009500ad9ff6535487261d211/jetbot/camera/opencv_gst_camera.py
+# which is released under the MIT License.
+# Copyright (c) 2019, NVIDIA CORPORATION. All rights reserved.
+# https://github.com/NVIDIA-AI-IOT/jetbot/blob/b8039f39932092f009500ad9ff6535487261d211/LICENSE.md
+
 import traitlets
 import atexit
 import cv2
